@@ -30,3 +30,4 @@ class Fundraiser(models.Model):
 
 
 
+

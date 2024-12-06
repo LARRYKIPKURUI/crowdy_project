@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_app.apps.MainAppConfig',
+    'crispy_forms',
+    # 'crispy_bootstrap5',
+
 ]
 
 MIDDLEWARE = [
@@ -138,10 +141,9 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-LOGIN_URL = 'login'
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_URL = 'login'
 
 # pip install mysqlclient

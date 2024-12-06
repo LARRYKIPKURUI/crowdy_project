@@ -1,15 +1,16 @@
+from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from main_app.models import Fundraiser
-
+from app_forms import FundraiserForm
 
 # Create your views here.
 
 
 def home(request):
-
     return render(request, 'home.html')
+
 
 def fundraisers(request):
     data = Fundraiser.objects.all().order_by('id').values()  # ORM select * from customers
@@ -27,4 +28,18 @@ def about(request):
 
 
 def projects(request):
-    return render(request,'projects.html')
+    return render(request, 'projects.html')
+
+
+def add_fundraiser(request):
+    if request.method == "POST":
+        form = FundraiserForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Fundraiser added successfully")
+            return redirect('fundraisers')
+    else:
+        form = FundraiserForm()
+
+    return render(request, 'fundraiser_form.html', {"form": form})
+
