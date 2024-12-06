@@ -1,0 +1,81 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container  mt-5 bg- p-4 ">
+        <!-- Description -->
+        <div class="row align-items-center  p-2 mb-4 mt-">
+            <div class="col-md-4 ">
+                <h1 class="text-black mb-5 fa-3x mt-2 font-bolder font-monospace">Welcome To</h1>
+                <h1 class="text-black mb-5  fa-3x font-monospace">CrowdFunding</h1>
+                <p class="fw-semi-bold font-monospace">Crowdy is an innovative web platform designed to empower
+                    individuals and
+                    organizations to raise funds for various causes. It provides a seamless experience for creating
+                    and managing fundraisers, enabling users to contribute to ongoing projects and support
+                    causes they care about. </p>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-md-8 mb-5">
+                <div class="col-12 text-center">
+                    <img src="{% static 'images/fund.jpg' %}" class="img-fluid rounded w-100vh" alt="Fundraising Image">
+                </div>
+            </div>
+        </div>
+        <!-- Cards Section -->
+        <div class="row gy-4">
+            <!-- Card 1 -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/card1.jpg' %}" class="card-img-top" alt="Card Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Crowdfunding</h5>
+                        <p class="card-text">
+                            Crowdfunding is a way to raise money by collecting small contributions from many people,
+                            typically online. It helps fund
+                            projects, causes, or businesses by leveraging the support of a community. </p>
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/card3.jpg' %}" class="card-img-top  object-fit-contain"
+                         alt="Card Image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Donations</h5>
+                        <p class="card-text">
+                            Donations are voluntary contributions made to support a cause, charity, or project. They can
+                            be monetary, material, or in-kind,
+                            aimed at helping those in need or advancing a purpose. </p>
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/card4.jpg' %}" class="card-img-top object-fit-contain"
+                         alt="Card Image 3">
+                    <div class="card-body">
+                        <h5 class="card-title">User Management</h5>
+                        <p class="card-text">
+                            User management involves creating, maintaining, and organizing user accounts within a
+                            system. It ensures secure access,
+                            role assignments, and efficient handling of user-related data.</p>
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

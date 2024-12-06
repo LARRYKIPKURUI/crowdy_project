@@ -1,0 +1,55 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    <title>Fundraisers</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Fundraisers</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Date Joined</th>
+                <th>Delete</th>
+                <th>Details</th>
+            </tr>
+
+            {% for fundraiser in data.object_list %}
+                <tr>
+                    <td>{{ fundraiser.id }}</td>
+                    <td>{{ fundraiser.first_name }}</td>
+                    <td>{{ fundraiser.last_name }}</td>
+                    <td>{{ fundraiser.email }}</td>
+                    <td>{{ fundraiser.created_at }}</td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" href="#">Remove</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="#">Details</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center btn btn-danger">No fundraisers found !!</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <div class="row justify-content-center">
+            <div class="col-sm-2">
+                {% if data.has_previous %}
+                    <a class="btn btn-outline-primary btn-sm" href="?page={{ data.previous_page_number }}"> << </a>
+                {% endif %}
+                <span class="mx-3">{{ data.number }}</span>
+                {% if data.has_next %}
+                    <a class="btn btn-outline-primary btn-sm" href="?page={{ data.next_page_number }}"> >> </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
