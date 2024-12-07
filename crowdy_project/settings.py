@@ -14,6 +14,7 @@ from pathlib import Path
 
 from django.contrib import messages
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app.apps.MainAppConfig',
     'crispy_forms',
-    # 'crispy_bootstrap5',
+    'crispy_bootstrap5',
 
 ]
 

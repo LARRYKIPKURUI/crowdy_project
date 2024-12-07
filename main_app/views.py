@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage
 from django.shortcuts import render, redirect
 
 from main_app.models import Fundraiser
-from app_forms import FundraiserForm
+from main_app.app_forms import FundraiserForm
 
 # Create your views here.
 

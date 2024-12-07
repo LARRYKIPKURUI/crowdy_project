@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h2>Fundraisers</h2>
-        <table class="table table-striped">
+    <body class="bg-dark text-white">
+         <div class="container bg-dark px-5 ">
+        <h2 class="p-2 fs-3 mt-2">Fundraisers</h2>
+        <table class="table table-dark table-borderd ">
             <tr>
                 <th>Id</th>
                 <th>First Name</th>
@@ -16,6 +17,8 @@
                 <th>Date Joined</th>
                 <th>Delete</th>
                 <th>Details</th>
+                <th>Donate</th>
+                <th>Update</th>
             </tr>
 
             {% for fundraiser in data.object_list %}
@@ -26,10 +29,16 @@
                     <td>{{ fundraiser.email }}</td>
                     <td>{{ fundraiser.created_at }}</td>
                     <td>
-                        <a class="btn btn-danger btn-sm" href="#">Remove</a>
+                        <a class="btn btn-danger btn-sm" href="#">Delete</a>
                     </td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="#">Details</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="#">Donate</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-sm" href="#">Update</a>
                     </td>
                 </tr>
             {% empty %}
@@ -42,14 +51,15 @@
         <div class="row justify-content-center">
             <div class="col-sm-2">
                 {% if data.has_previous %}
-                    <a class="btn btn-outline-primary btn-sm" href="?page={{ data.previous_page_number }}"> << </a>
+                    <a class="btn btn-outline-primary btn-sm p-2" href="?page={{ data.previous_page_number }}"> << </a>
                 {% endif %}
                 <span class="mx-3">{{ data.number }}</span>
                 {% if data.has_next %}
-                    <a class="btn btn-outline-primary btn-sm" href="?page={{ data.next_page_number }}"> >> </a>
+                    <a class="btn btn-outline-primary btn-sm p-2" href="?page={{ data.next_page_number }}"> >> </a>
                 {% endif %}
             </div>
         </div>
     </div>
+    </body>
 {% endblock %}
 

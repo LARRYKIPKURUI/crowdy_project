@@ -6,47 +6,79 @@
 {% endblock %}
 
 {% block content %}
-    <h2 class="d-flex justify-content-center mx-4 my-3 fs-8">CrowdFund Projects Available</h2>
-    <div class="row row-cols-1 row-cols-md-2 p-4 g-4">
-    <div class="col">
-        <div class="card">
-            <img src="{% static 'images/project5.jpg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
+    <body class="bg-dark text-white">
+         <h2 class="d-flex justify-content-center mx-4 my-3 fs-8 text-warning">CrowdFund Projects Available</h2>
+         <div class="row row-cols-1 row-cols-md-2 p-4 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'images/project5.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <h5 class="card-title text-warning font-bolder fs-3">Estate Road Renovation</h5>
+                    <h5 class="text-primary">Target amount: <span class="text-danger">Kshs 750,000</span></h5>
+                    <p class="card-text">The Estate Road Renovation project seeks to improve the condition of roads
+                        within the estate, ensuring safer and smoother transportation for residents and visitors. The
+                        funds will cover resurfacing, pothole repairs, drainage improvement, and signage
+                        installation.</p>
+                    <p class="card-text"><strong>Why this project?</strong> Well-maintained roads are vital for
+                        enhancing mobility, reducing vehicle wear and tear, and improving overall safety. By
+                        contributing to this initiative, you are helping to create a better and more connected
+                        community.</p>
+                </div>
+
             </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="{% static 'images/project2.jpg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'images/project2.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <h5 class="card-title text-warning fs-3">Community Borehole</h5>
+                    <h5 class="text-primary">Target amount: <span class="text-danger">Kshs 100,000</span></h5>
+                    <p class="card-text">The Community Borehole project aims to provide sustainable access to clean
+                        water for underserved communities. Our goal is to raise Kshs 100,000 to cover drilling,
+                        installation, and maintenance costs. With your support, we can ensure a consistent water supply
+                        for the community, improving health and livelihoods.</p>
+                    <p class="card-text"><strong>Why this project?</strong> Lack of reliable access to water is a
+                        significant challenge in many areas. The community borehole will not only address immediate
+                        water needs but also contribute to long-term health and economic benefits. Your contributions
+                        will directly impact the lives of many.</p>
+                </div>
+
             </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="{% static 'images/project3.jpg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content.</p>
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'images/project3.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <h5 class="card-title fs-3 text-warning">Public Park Cleanup</h5>
+                    <h5 class="text-primary">Target amount: <span class="text-danger">Kshs 75,000</span></h5>
+                    <p class="card-text">The Public Park Cleanup project focuses on restoring and beautifying our local
+                        park to create a safe, clean, and welcoming environment for the community. The funds raised will
+                        cover the costs of cleaning supplies, waste disposal, landscaping, and maintenance.</p>
+                    <p class="card-text"><strong>Why this project?</strong> A clean park enhances community well-being,
+                        promotes environmental sustainability, and provides a space for recreation and social
+                        gatherings. Your support will directly contribute to improving the quality of life in our area.
+                    </p>
+                </div>
+
             </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="{% static 'images/project4.jpg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
+        <div class="col">
+            <div class="card">
+                <img src="{% static 'images/project4.jpg' %}" class="card-img-top" alt="Community College Construction">
+                <div class="card-body bg-dark text-white">
+                    <h5 class="card-title text-warning fs-3">Community College Construction</h5>
+                    <h5 class="text-primary">Target amount: <span class="text-danger">Kshs 14,100,000</span></h5>
+                    <p class="card-text">The Community College Construction project aims to establish a state-of-the-art
+                        educational facility that will provide access to affordable, quality education and vocational
+                        training for underserved communities. The funds will be used for construction, furnishing, and
+                        essential equipment to ensure students have a conducive learning environment.</p>
+                    <p class="card-text"><strong>Why this project?</strong> Education is the cornerstone of community
+                        development. By supporting this initiative, you are helping empower individuals with the skills
+                        and knowledge needed to build a better future for themselves and their families.</p>
+                </div>
             </div>
+
         </div>
     </div>
-</div>
+    </body>
 {% endblock %}
