@@ -19,7 +19,7 @@ class Fundraiser(models.Model):
 
 class Donation(models.Model):
     fundraiser = models.ForeignKey(Fundraiser, on_delete=models.CASCADE,related_name='donations')
-    project_name = models.CharField(max_length=50)
+    project_name = models.CharField(max_length=255)
     amount = models.IntegerField()
     status = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

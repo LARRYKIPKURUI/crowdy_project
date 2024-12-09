@@ -14,7 +14,7 @@ class FundraiserForm(forms.ModelForm):
 class DonationForm(forms.ModelForm):
     class Meta:
         model = Donation
-        fields = ['amount']
+        fields = ['amount','project_name']
         widgets = {
             'project_name': forms.TextInput(attrs={'class': 'form-control'}),
             'amount': forms.NumberInput(attrs={'type': 'number', 'min':'0', 'max':'100000'})

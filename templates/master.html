@@ -51,7 +51,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'add_fundraiser' %}">Add Fundraiser</a></li>
-                        <li><a class="dropdown-item" href="#">Add Project</a></li>
+{#                        <li><a class="dropdown-item" href="#">Add Project</a></li>#}
                            <li><a class="dropdown-item" href="{% url 'add_donation' fundraiser_id=1 %}">Add Donation</a></li>
                     </ul>
                 </li>
@@ -111,13 +111,13 @@
                     <hr class="mb-4 mt-0 d-inline-block mx-auto"
                         style="width: 60px; background-color: #7c4dff; height: 2px"/>
                     <p>
-                        <a href="#" class="text-white">Crowdfunding portal</a>
+                        <a href="{% url 'home' %}" class="text-white">Crowdfunding portal</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white">Donation System</a>
+                        <a href="{% url 'donations' %}" class="text-white">Donation System</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white">User Management</a>
+                        <a href="{% url 'fundraisers' %}" class="text-white">User Management</a>
                     </p>
 
                 </div>
@@ -130,16 +130,16 @@
                     <hr class="mb-4 mt-0 d-inline-block mx-auto"
                         style="width: 60px; background-color: #7c4dff; height: 2px"/>
                     <p>
-                        <a href="#" class="text-white">Home</a>
+                        <a href="{% url 'home' %}" class="text-white">Home</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white">About Us</a>
+                        <a href="{% url 'about' %}" class="text-white">About Us</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white">Fundraisers</a>
+                        <a href="{% url 'fundraisers' %}" class="text-white">Fundraisers</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white">Donations</a>
+                        <a href="{% url 'donations' %}" class="text-white">Donations</a>
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -174,8 +174,6 @@
 
 </body>
 </html>
-
-
 
 
 
