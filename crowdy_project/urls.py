@@ -15,16 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-
 from django.urls import path
 from main_app import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('fundraisers/', views.fundraisers, name='fundraisers'),
-    path('about/', views.about, name='about'),
-    path('add/fundraiser', views.add_fundraiser, name='add_fundraiser'),
-    path('projects/', views.projects, name='projects'),
-    path('admin/', admin.site.urls),
-
+    path('', views.home, name='home'),  # Home page
+    path('about/', views.about, name='about'),  # About page
+    path('fundraisers/', views.fundraisers, name='fundraisers'),  # List all fundraisers
+    path('donations/', views.donations, name='donations'),  # List all Donations
+    path('add/fundraiser/', views.add_fundraiser, name='add_fundraiser'),  # Add a new fundraiser
+    path('add/donation/<int:fundraiser_id>/', views.add_donation, name='add_donation'),  # Add donation
+    path('projects/', views.projects, name='projects'),  # View projects
+    path('admin/', admin.site.urls),  # Admin panel
 ]

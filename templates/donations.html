@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    <title>Donations</title>
+{% endblock %}
+
+{% block content %}
+    <body class="bg-dark text-white">
+         <div class="container bg-dark px-5 ">
+        <h2 class="p-2 fs-3 mt-2">Donations for {{ fundraiser.first_name }} {{ fundraiser.last_name }}</h2>
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for donation in data %}
+                    <tr>
+                        <td>{{ donation.id }}</td>
+                        <td>{{ donation.amount }}</td>
+                        <td>{{ donation.created_at | date:"d-m-Y" }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3" class="text-center btn btn-danger">No Donations found!</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="row justify-content-center">
+            <div class="col-sm-2">
+                {% if data.has_previous %}
+                    <a class="btn btn-outline-primary btn-sm p-2" href="?page={{ data.previous_page_number }}"> << </a>
+                {% endif %}
+                <span class="mx-3">{{ data.number }}</span>
+                {% if data.has_next %}
+                    <a class="btn btn-outline-primary btn-sm p-2" href="?page={{ data.next_page_number }}"> >> </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

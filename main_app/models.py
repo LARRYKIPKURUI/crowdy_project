@@ -17,6 +17,20 @@ class Fundraiser(models.Model):
     class Meta:
         db_table = 'fundraisers'
 
+class Donation(models.Model):
+    fundraiser = models.ForeignKey(Fundraiser, on_delete=models.CASCADE,related_name='donations')
+    project_name = models.CharField(max_length=50)
+    amount = models.IntegerField()
+    status = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.fundraiser.first_name} {self.project_name} {self.amount}"
+
+    class Meta:
+        db_table = 'donations'
+
 
 
 
