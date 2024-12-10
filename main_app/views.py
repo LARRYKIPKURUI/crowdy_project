@@ -39,7 +39,7 @@ def add_fundraiser(request):
         form = FundraiserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, "Fundraiser added successfully")
+            messages.success(request, "Fundraiser  added  successfully")
             return redirect('fundraisers')
     else:
         form = FundraiserForm()
@@ -55,7 +55,7 @@ def add_donation(request, fundraiser_id):
             amount = form.cleaned_data['amount']
             donate = Donation(amount=amount, status=True, fundraiser=fundraiser)
             donate.save()
-            messages.success(request, 'Your donation has been successfully saved')
+            messages.success(request, 'Your donation has been successfully saved ')
             return redirect('donations')
     else:
         form = DonationForm()
@@ -77,7 +77,7 @@ def donations(request):
 def delete_fundraiser(request, fundraiser_id):
     fundraiser = Fundraiser.objects.get(id=fundraiser_id)
     fundraiser.delete()
-    messages.info(request,f"Fundraiser {fundraiser.first_name} was deleted!!")
+    messages.info(request,f"Fundraiser  {fundraiser.first_name}  was  deleted!! ")
     return redirect('fundraisers')  # Redirects back to customers page and will load again
 
 
@@ -94,7 +94,7 @@ def update_fundraiser(request,fundraiser_id):
         form = FundraiserForm(request.POST, request.FILES, instance=fundraiser)
         if form.is_valid():
             form.save()
-            messages.success(request, f"Fundraiser{form.cleaned_data['first_name']} was updated!")
+            messages.success(request, f"Fundraiser {form.cleaned_data['first_name']}   was  updated!")
             return redirect('fundraisers')
     else:
         form = FundraiserForm(instance=fundraiser)
