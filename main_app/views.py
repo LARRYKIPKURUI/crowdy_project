@@ -71,3 +71,30 @@ def donations(request):
         paginated_data = paginator.page(1)
 
     return render(request, "donations.html", {"data": paginated_data})
+
+
+def delete_fundraiser(request, fundraiser_id):
+    fundraiser = Fundraiser.objects.get(id=fundraiser_id)
+    fundraiser.delete()
+    messages.info(request,f"Fundraiser {fundraiser.first_name} was deleted!!")
+    return redirect('fundraisers')  # Redirects back to customers page and will load again
+
+
+def fundraiser_details(request, fundraiser_id):
+    fundraiser = Fundraiser.objects.get(id=fundraiser_id)
+    donations = Donation.objects.filter(fundraiser_id=fundraiser_id)
+
+    return render(request, "details.html", {'fundraiser': fundraiser, 'donations': donations})
+
+
+def update_fundraiser(request,fundraiser_id):
+    fundraiser = get_object_or_404(Fundraiser, id=fundraiser_id)
+    if request.method == "POST":
+        form = FundraiserForm(request.POST, request.FILES, instance=fundraiser)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Fundraiser{form.cleaned_data['first_name']} was updated!")
+            return redirect('fundraisers')
+    else:
+        form = FundraiserForm(instance=fundraiser)
+    return render(request, 'fundraiser_update_form.html', {"form": form})

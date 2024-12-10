@@ -29,16 +29,16 @@
                     <td>{{ fundraiser.email }}</td>
                     <td>{{ fundraiser.created_at }}</td>
                     <td>
-                        <a class="btn btn-danger btn-sm" href="#">Delete</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'delete_fundraiser' fundraiser.id %}">Delete</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="#">Details</a>
+                        <a class="btn btn-primary btn-sm" href="{% url 'fundraiser_details' fundraiser.id %}">Details</a>
                     </td>
                     <td>
-                        <a class="btn btn-warning btn-sm" href="#">Donate</a>
+                        <a class="btn btn-warning btn-sm" href="{% url 'add_donation' fundraiser.id  %}">Donate</a>
                     </td>
                     <td>
-                        <a class="btn btn-success btn-sm" href="#">Update</a>
+                        <a class="btn btn-success btn-sm" href="{% url 'update_fundraiser' fundraiser.id %}">Update</a>
                     </td>
                 </tr>
             {% empty %}

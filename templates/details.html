@@ -1,0 +1,58 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Fundraiser Details</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-sm-4">
+                <table class="table table-striped">
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{ fundraiser.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{ fundraiser.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ fundraiser.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>{{ fundraiser.dob | date:"d:m:y" }}</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>{{ fundraiser.gender }}</td>
+                    </tr>
+
+                </table>
+            </div>
+{#            <div class="col-sm-4">#}
+{#                <img src="{% static 'profile.png' %}" alt="customer">#}
+{#            </div>#}
+            <div class="col-sm-4">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for donation in donations%}
+                        <tr>
+                            <td>{{ donation.created_at | date:'d:m-y' }}</td>
+                            <td>{{ donation.amount }}</td>
+                            <td>{{ donation.status }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
