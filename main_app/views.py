@@ -1,6 +1,7 @@
 
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 
 from main_app.models import Fundraiser, Donation
@@ -98,3 +99,10 @@ def update_fundraiser(request,fundraiser_id):
     else:
         form = FundraiserForm(instance=fundraiser)
     return render(request, 'fundraiser_update_form.html', {"form": form})
+
+
+def search_fundraiser(request):
+    search_term = request.GET.get('search')
+    da_ta = Fundraiser.objects.filter(
+        Q(first_name__icontains=search_term) | Q(last_name__icontains=search_term) | Q(email__icontains=search_term))
+    return render(request, "search.html", {"fundraisers": da_ta})

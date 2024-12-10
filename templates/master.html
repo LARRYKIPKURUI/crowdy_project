@@ -45,20 +45,22 @@
                        href="{% url 'donations' %}">Donations</a>
                 </li>
                 <li class="nav-item dropdown bg-dark text-white">
-                    <a class="nav-link dropdown-toggle text-white nav-dark" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-white nav-dark" href="#" role="button"
+                       data-bs-toggle="dropdown"
                        aria-expanded="false">
                         Add
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'add_fundraiser' %}">Add Fundraiser</a></li>
-{#                        <li><a class="dropdown-item" href="#">Add Project</a></li>#}
-                           <li><a class="dropdown-item" href="{% url 'add_donation' fundraiser_id=1 %}">Add Donation</a></li>
+                        {#                        <li><a class="dropdown-item" href="#">Add Project</a></li>#}
+                        <li><a class="dropdown-item" href="{% url 'add_donation' fundraiser_id=1 %}">Add Donation</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" method="get" action="{% url 'search_fundraiser' %}">
+                <input class="form-control me-2" type="text" name="search" placeholder="Search Fundraiser">
+                <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>
     </div>

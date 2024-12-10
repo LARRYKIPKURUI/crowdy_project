@@ -28,6 +28,7 @@ urlpatterns = [
     path('add/donation/<int:fundraiser_id>/', views.add_donation, name='add_donation'),  # Add donation
     path('fundraisers/delete/<int:fundraiser_id>', views.delete_fundraiser, name='delete_fundraiser'),
     path('fundraisers/details/<int:fundraiser_id>', views.fundraiser_details, name='fundraiser_details'),
+    path('fundraisers/search', views.search_fundraiser, name='search_fundraiser'),
     path('fundraisers/update/<int:fundraiser_id>', views.update_fundraiser, name='update_fundraiser'),
     path('projects/', views.projects, name='projects'),  # View projects
     path('admin/', admin.site.urls),  # Admin panel
