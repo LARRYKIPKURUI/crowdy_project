@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Project Name</th>
                     <th>Amount</th>
                     <th>Date</th>
                 </tr>
@@ -20,6 +21,7 @@
                 {% for donation in data %}
                     <tr>
                         <td>{{ donation.id }}</td>
+                        <td>{{ donation.project_name }}</td>
                         <td>{{ donation.amount }}</td>
                         <td>{{ donation.created_at | date:"d-m-Y" }}</td>
                     </tr>

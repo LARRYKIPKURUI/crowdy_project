@@ -13,7 +13,7 @@
                 <p>Email: {{ fundraiser.email }}</p>
                 <p>Joining Date:  {{ fundraiser.created_at | date:"d-m-Y" }}</p>
 
-                <form action="{% url 'add_donation' fundraiser_id=52 %}" method="post">
+                <form action="{% url 'add_donation' fundraiser_id=fundraiser.id %}" method="post">
                     {% csrf_token %}
                     <!-- Display any form errors -->
                     {% if form.errors %}

@@ -1,4 +1,3 @@
-
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage
 from django.db.models import Q
@@ -52,14 +51,21 @@ def add_donation(request, fundraiser_id):
     if request.method == "POST":
         form = DonationForm(request.POST)
         if form.is_valid():
-            amount = form.cleaned_data['amount']
-            donate = Donation(amount=amount, status=True, fundraiser=fundraiser)
-            donate.save()
+            donation = form.save(commit=False)
+            donation.amount = form.cleaned_data['amount']
+            donation.project_name = form.cleaned_data['project_name']
+            donation.status = True
+            donation.fundraiser = fundraiser
+            donation.save()
             messages.success(request, 'Your donation has been successfully saved ')
             return redirect('donations')
+        else:
+            # Handle invalid form, e.g., display error messages
+            messages.error(request, 'Please correct the errors in the form.')
+            return render(request, 'donation_form.html', {'form': form, 'fundraiser': fundraiser})
     else:
         form = DonationForm()
-    return render(request, 'donation_form.html', {"form": form, "fundraiser": fundraiser})
+    return render(request, 'donation_form.html', {'form': form, 'fundraiser': fundraiser})
 
 
 def donations(request):
@@ -77,7 +83,7 @@ def donations(request):
 def delete_fundraiser(request, fundraiser_id):
     fundraiser = Fundraiser.objects.get(id=fundraiser_id)
     fundraiser.delete()
-    messages.info(request,f"Fundraiser  {fundraiser.first_name}  was  deleted!! ")
+    messages.info(request, f"Fundraiser  {fundraiser.first_name}  was  deleted!! ")
     return redirect('fundraisers')  # Redirects back to customers page and will load again
 
 
@@ -88,7 +94,7 @@ def fundraiser_details(request, fundraiser_id):
     return render(request, "details.html", {'fundraiser': fundraiser, 'donations': donations})
 
 
-def update_fundraiser(request,fundraiser_id):
+def update_fundraiser(request, fundraiser_id):
     fundraiser = get_object_or_404(Fundraiser, id=fundraiser_id)
     if request.method == "POST":
         form = FundraiserForm(request.POST, request.FILES, instance=fundraiser)
