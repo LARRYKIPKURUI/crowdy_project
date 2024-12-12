@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required, permission_required
 
 from django.core.paginator import Paginator, EmptyPage
 from django.db.models import Q
@@ -11,11 +12,11 @@ from main_app.app_forms import FundraiserForm, DonationForm, LoginForm
 
 # Create your views here.
 
-
+@login_required
 def home(request):
     return render(request, 'home.html')
 
-
+@login_required
 def fundraisers(request):
     data = Fundraiser.objects.all().order_by('id').values()  # ORM select * from customers
     paginator = Paginator(data, 15)
@@ -26,15 +27,16 @@ def fundraisers(request):
         paginated_data = paginator.page(1)
     return render(request, "fundraisers.html", {"data": paginated_data})
 
-
+@login_required
 def about(request):
     return render(request, 'about.html')
 
-
+@login_required
 def projects(request):
     return render(request, 'projects.html')
 
-
+@login_required
+@permission_required ("main_app.add_fundraiser", raise_exception=True)
 def add_fundraiser(request):
     if request.method == "POST":
         form = FundraiserForm(request.POST, request.FILES)
@@ -47,6 +49,7 @@ def add_fundraiser(request):
 
     return render(request, 'fundraiser_form.html', {"form": form})
 
+@login_required
 
 def add_donation(request, fundraiser_id):
     fundraiser = get_object_or_404(Fundraiser, id=fundraiser_id)
@@ -69,7 +72,7 @@ def add_donation(request, fundraiser_id):
         form = DonationForm()
     return render(request, 'donation_form.html', {'form': form, 'fundraiser': fundraiser})
 
-
+@login_required
 def donations(request):
     data = Donation.objects.all().order_by('id').values()  # ORM to select all donations
     paginator = Paginator(data, 15)
@@ -81,21 +84,24 @@ def donations(request):
 
     return render(request, "donations.html", {"data": paginated_data})
 
-
+@login_required
+@permission_required("main_app.delete_fundraiser",raise_exception=True)
 def delete_fundraiser(request, fundraiser_id):
     fundraiser = Fundraiser.objects.get(id=fundraiser_id)
     fundraiser.delete()
     messages.info(request, f"Fundraiser  {fundraiser.first_name}  was  deleted!! ")
     return redirect('fundraisers')  # Redirects back to customers page and will load again
 
-
+@login_required
+@permission_required("main_app.view_fundraiser", raise_exception=True)
 def fundraiser_details(request, fundraiser_id):
     fundraiser = Fundraiser.objects.get(id=fundraiser_id)
     donations = Donation.objects.filter(fundraiser_id=fundraiser_id)
 
     return render(request, "details.html", {'fundraiser': fundraiser, 'donations': donations})
 
-
+@login_required
+@permission_required("main_app.change_fundraiser", raise_exception=True)
 def update_fundraiser(request, fundraiser_id):
     fundraiser = get_object_or_404(Fundraiser, id=fundraiser_id)
     if request.method == "POST":
@@ -108,7 +114,8 @@ def update_fundraiser(request, fundraiser_id):
         form = FundraiserForm(instance=fundraiser)
     return render(request, 'fundraiser_update_form.html', {"form": form})
 
-
+@login_required
+@permission_required("main_app.view_fundraiser", raise_exception=True)
 def search_fundraiser(request):
     search_term = request.GET.get('search')
     da_ta = Fundraiser.objects.filter(
@@ -132,7 +139,7 @@ def login_user(request):
         # messages.error(request,"Invalid username or password")
         return render(request , 'login.html',{'form':form})
 
-
+@login_required
 def logout_user(request):
     logout(request)
     return redirect('login')

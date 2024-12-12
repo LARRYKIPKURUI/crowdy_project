@@ -37,6 +37,6 @@ admin.site.register(Fundraiser, FundraiserAdmin)
 
 # 1a2Bc9*33aa!!
 
-
-#User1 pass=ABC98a0001
-#User_hr  pass =ABC98a002
+# admin@gmail.com = 123456
+# User1 pass= ABC98a0001
+# User_hr  pass = ABC98a002
