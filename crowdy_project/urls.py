@@ -31,5 +31,7 @@ urlpatterns = [
     path('fundraisers/search', views.search_fundraiser, name='search_fundraiser'),
     path('fundraisers/update/<int:fundraiser_id>', views.update_fundraiser, name='update_fundraiser'),
     path('projects/', views.projects, name='projects'),  # View projects
+    path('login', views.login_user, name='login'),
+    path('logout', views.logout_user, name='logout'),
     path('admin/', admin.site.urls),  # Admin panel
 ]

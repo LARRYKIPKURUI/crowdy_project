@@ -36,6 +36,7 @@ admin.site.register(Fundraiser, FundraiserAdmin)
 # localhost:8000/admin
 
 # 1a2Bc9*33aa!!
-from django.contrib import admin
 
-# Register your models here.
+
+#User1 pass=ABC98a0001
+#User_hr  pass =ABC98a002

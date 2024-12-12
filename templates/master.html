@@ -57,6 +57,10 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white active icon-link"
+                       href="{% url 'logout' %}">Sign Out</a>
+                </li>
             </ul>
             <form class="d-flex" method="get" action="{% url 'search_fundraiser' %}">
                 <input class="form-control me-2" type="text" name="search" placeholder="Search Fundraiser">
