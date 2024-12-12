@@ -4,7 +4,7 @@ from main_app.models import Fundraiser
 
 # Register your models here.
 
-admin.site_header = 'CrowdFund Administration'
+admin.site_header = 'Crowdy Administration'
 admin.site.site_title = 'Crowdy Admin'
 
 
